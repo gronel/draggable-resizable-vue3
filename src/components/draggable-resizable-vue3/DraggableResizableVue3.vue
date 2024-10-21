@@ -1092,6 +1092,8 @@ const elementMouseLeave = () => {
   }
 }
 
+let resizeObserver;
+
 onMounted(() => {
   resetBoundsAndMouseState()
 
@@ -1129,8 +1131,7 @@ onMounted(() => {
 
   const parentElement = document.getElementById(props.parent.replace('#', ''));
       if (parentElement) {
-        const resizeObserver = new ResizeObserver(() => {
-          console.log('Parent size changed');
+         resizeObserver = new ResizeObserver(() => {
           checkParentSize();
         });
         resizeObserver.observe(parentElement);
