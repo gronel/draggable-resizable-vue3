@@ -1138,13 +1138,7 @@ onMounted(() => {
       }
 })
 
-onBeforeUnmount(() => {
-      const parentElement = document.getElementById(props.parent.replace('#', ''));
-      if (parentElement && resizeObserver) {
-        resizeObserver.unobserve(parentElement);
-        resizeObserver.disconnect();
-      }
-    });
+
 
 
 watch(
